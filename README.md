@@ -1,66 +1,74 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Budgets
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Features
 
-## About Laravel
+Designing a web app for the 50/30/20 budgeting strategy involves creating an intuitive and user-friendly platform that guides users in allocating their after-tax income into three categories: Needs (50%), Wants (30%), and Savings or Debt Repayment (20%). Here's an outline of useful features for such an app:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1. User Registration and Profile Management
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+   ~~Secure sign-up and login functionality.~~
+   Profile setup where users can input personal and financial information.
+   Option to link bank accounts or manually input income details.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+2. Income Tracking
 
-## Learning Laravel
+   Feature to add multiple income sources.
+   Real-time tracking of after-tax income.
+   Option for users to set their pay schedule for automatic updates.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3. Expense Tracking and Categorization
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+   Ability to log and categorize expenses as Needs, Wants, or Savings/Debt.
+   Automated categorization using AI for common expenses, with manual override.
+   Recurring expense tracker for bills and subscriptions.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. 50/30/20 Budget Allocation Tool
 
-## Laravel Sponsors
+   Interactive tool to apply the 50/30/20 rule to user's after-tax income.
+   Customizable allocations for users with different financial goals.
+   Visual representations (charts, graphs) of budget allocation and spending.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+5. Savings and Debt Repayment Planner
 
-### Premium Partners
+   Features to set savings goals and debt repayment plans.
+   Progress trackers for each goal or debt.
+   Suggestions for optimizing debt repayment (e.g., highest interest first).
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+6. Alerts and Notifications
 
-## Contributing
+   Customizable alerts for budget thresholds (e.g., nearing 30% on Wants).
+   Reminders for bill payments and savings contributions.
+   Notifications for irregular spending patterns.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+7. Financial Reports and Insights
 
-## Code of Conduct
+   Monthly and yearly financial reports detailing income, expenses, savings, and budget adherence.
+   Insights on spending habits with tips for improvement.
+   Comparative analysis with previous periods for trend identification.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+8. Educational Resources
 
-## Security Vulnerabilities
+   In-app articles, videos, and tips on financial literacy, especially related to budgeting and personal finance management.
+   Webinars or live sessions with financial advisors.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+9. Community and Support
 
-## License
+   Forum or community feature for users to share experiences, tips, and ask questions.
+   Direct support through chat or email for personalized assistance.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+10. Security and Privacy
+
+    State-of-the-art encryption and security measures to protect user data.
+    Transparent privacy policy detailing data use and user rights.
+
+11. Integration and Syncing
+
+    Integration with major banks and financial institutions for real-time data syncing.
+    Export features for financial data, compatible with spreadsheets and other financial software.
+
+12. Customization and Preferences
+
+    Customizable dashboard to highlight key metrics and reports important to the user.
+    Theme and display options for accessibility and personal preference.
+
+By incorporating these features, the web app would not only help users adhere to the 50/30/20 budgeting rule but also empower them with tools and insights to improve their financial health over time.
