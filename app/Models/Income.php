@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $user_id
  * @property string $source
  * @property float $amount
+ * @property string $cycle
  */
 class Income extends Model
 {
@@ -23,17 +24,32 @@ class Income extends Model
         'user_id',
         'source',
         'amount',
+        'cycle',
     ];
 
-    // Relationship with User
+    protected $casts = [];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    // Polymorphic relationship with Transaction
     public function transactions(): MorphMany
     {
         return $this->morphMany(Transaction::class, 'transactionable');
+    }
+
+    public static function getRules(): array
+    {
+        return [
+            'source' => 'required|string',
+            'amount' => 'required|numeric',
+            'cycle' => 'required|string',
+        ];
+    }
+
+    public static function getCycles(): array
+    {
+        return ['once', 'weekly', 'fortnightly', 'monthly', 'quarterly', 'annually'];
     }
 }

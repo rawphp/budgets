@@ -12,7 +12,7 @@ class IncomePolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -20,7 +20,7 @@ class IncomePolicy
      */
     public function view(User $user, Income $income): bool
     {
-        //
+        return $income->user->id === $user->id;
     }
 
     /**
@@ -28,7 +28,7 @@ class IncomePolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -36,7 +36,7 @@ class IncomePolicy
      */
     public function update(User $user, Income $income): bool
     {
-        //
+        return $income->user->id === $user->id;
     }
 
     /**
@@ -44,7 +44,7 @@ class IncomePolicy
      */
     public function delete(User $user, Income $income): bool
     {
-        //
+        return $income->user->id === $user->id;
     }
 
     /**
@@ -52,7 +52,7 @@ class IncomePolicy
      */
     public function restore(User $user, Income $income): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -60,6 +60,6 @@ class IncomePolicy
      */
     public function forceDelete(User $user, Income $income): bool
     {
-        //
+        return false;
     }
 }

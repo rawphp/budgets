@@ -18,7 +18,7 @@ $logout = function (Logout $logout) {
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}" wire:navigate>
-                        <img src="logo.jpg" width="50" height="50" alt="logo" />
+                        <img src="/logo.jpg" width="50" height="50" alt="logo" />
                     </a>
                 </div>
 
@@ -27,7 +27,7 @@ $logout = function (Logout $logout) {
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('income-sources')" :active="request()->routeIs('income-sources')" wire:navigate>
+                    <x-nav-link :href="route('income.index')" :active="request()->routeIs('income.index')" wire:navigate>
                         {{ __('Income') }}
                     </x-nav-link>
                 </div>
@@ -80,6 +80,9 @@ $logout = function (Logout $logout) {
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('income.index')" :active="request()->routeIs('income.index')" wire:navigate>
+                {{ __('Income') }}
             </x-responsive-nav-link>
         </div>
 
