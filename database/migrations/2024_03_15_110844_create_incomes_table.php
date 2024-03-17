@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('source'); // Assuming you want to store the income source as a string
             $table->decimal('amount', 10, 2);
-            $table->string('cycle')->nullable();
+            $table->string('cycle');
             $table->timestamps();
             $table->softDeletes();
 

@@ -22,7 +22,7 @@ class IncomeFactory extends Factory
             'user_id' => User::factory(),
             'source' => 'Job',
             'amount' => 2000,
-            'cycle' => null,
+            'cycle' => 'weekly',
         ];
     }
 }
