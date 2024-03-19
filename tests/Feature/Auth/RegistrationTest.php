@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Auth;
 
+use App\Models\Currency;
 use Livewire\Volt\Volt;
 
 test('registration screen can be rendered', function () {
@@ -13,6 +14,7 @@ test('registration screen can be rendered', function () {
 });
 
 test('new users can register', function () {
+    Currency::factory()->create();
     $component = Volt::test('pages.auth.register')
         ->set('name', 'Test User')
         ->set('email', 'test@example.com')

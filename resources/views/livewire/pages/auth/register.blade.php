@@ -15,20 +15,21 @@ state([
     'name' => '',
     'email' => '',
     'password' => '',
-    'password_confirmation' => ''
+    'password_confirmation' => '',
+    'currency_code' => 'AUD',
 ]);
 
 rules([
     'name' => ['required', 'string', 'max:255'],
     'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
     'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
+    'currency_code' => ['required', 'exists:currencies,code']
 ]);
 
 $register = function () {
     $validated = $this->validate();
 
     $validated['password'] = Hash::make($validated['password']);
-
     event(new Registered($user = User::create($validated)));
 
     Auth::login($user);

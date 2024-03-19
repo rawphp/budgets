@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
             'email' => 'tomkaczocha@gmail.com',
             'password' => Hash::make('password'),
             'email_verified_at' => Carbon::now(),
+            'currency_code' => 'AUD',
         ]);
     }
 }
