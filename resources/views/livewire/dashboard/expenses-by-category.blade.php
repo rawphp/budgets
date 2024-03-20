@@ -1,13 +1,38 @@
 <?php
 
+use App\Enum\ExpenseType;
+use App\Models\Expense;
 use Illuminate\Support\Facades\Auth;
 use function Livewire\Volt\{state};
 
+$needs = 0;
+$wants = 0;
+$saving = 0;
+
+$expenses = Auth::user()->expenses;
+
+/** @var Expense $expense */
+foreach ($expenses as $expense) {
+    switch ($expense->category->value) {
+        case ExpenseType::Need->value:
+            $needs += $expense->amount;
+            break;
+        case ExpenseType::Want->value:
+            $wants += $expense->amount;
+            break;
+        case ExpenseType::SavingDebt->value:
+            $saving += $expense->amount;
+            break;
+        default:
+            break;
+    }
+}
+
 state([
-    'labels' => ['October', 'November', 'December', 'January', 'February', 'March'],
-    'monthlyIncome' => [10000, 10000, 10000, 12500, 10000, 10000],
-    'currency' => Auth::user()->currency_code,
+    'labels' => [ExpenseType::Need->value, ExpenseType::Want->value, 'Saving/Debt'],
+    'expenses' => [$needs, $wants, $saving],
     'locale' => app()->getLocale(),
+    'totalExpenses' => $needs + $wants + $saving,
 ]);
 ?>
 @assets
@@ -15,27 +40,26 @@ state([
 @endassets
 
 <div>
-    <x-card title="Total Monthly Income">
+    <x-card title="Expenses by Category">
         <div>
-            <canvas id="total-monthly-income-chart"></canvas>
+            <canvas id="expenses-by-category-chart"></canvas>
         </div>
     </x-card>
 </div>
 
 @script
 <script>
-    const ctx = document.getElementById('total-monthly-income-chart');
-    const data = $wire.monthlyIncome;
+    const ctx = document.getElementById('expenses-by-category-chart');
+    const data = $wire.expenses;
     const labels = $wire.labels;
-    const currency = $wire.currency;
     const locale = $wire.locale;
+    const totalExpenses = $wire.totalExpenses;
 
     new Chart(ctx, {
-        type: 'line',
+        type: 'pie',
         data: {
             labels,
             datasets: [{
-                label: 'Total Monthly Income',
                 data,
                 borderWidth: 1
             }]
@@ -56,14 +80,11 @@ state([
                                 label += ': ';
                             }
 
-                            if (context.parsed.y !== null) {
+                            if (context.parsed !== null) {
                                 label += new Intl.NumberFormat(
                                     locale,
-                                    {
-                                        style: 'currency',
-                                        currency: currency
-                                    }
-                                ).format(context.parsed.y);
+                                    { style: 'percent'}
+                                ).format((context.parsed / totalExpenses));
                             }
 
                             return label;
