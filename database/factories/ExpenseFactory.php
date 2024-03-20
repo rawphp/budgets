@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Enum\ExpenseType;
 use App\Models\Expense;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +20,10 @@ class ExpenseFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => User::factory(),
+            'name' => fake()->slug(),
+            'category' => fake()->randomElement([ExpenseType::Need, ExpenseType::Want, ExpenseType::SavingDebt]),
+            'amount' => fake()->numberBetween(10, 1000),
         ];
     }
 }

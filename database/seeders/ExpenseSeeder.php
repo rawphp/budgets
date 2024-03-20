@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Enum\ExpenseType;
+use App\Models\Expense;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class ExpenseSeeder extends Seeder
@@ -12,6 +14,16 @@ class ExpenseSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        User::all()->map(function (User $user) {
+            Expense::factory()->create([
+                'user_id' => $user->id,
+                'name' => 'Mortgage',
+                'category' => ExpenseType::Need,
+                'amount' => 765.00,
+            ]);
+            Expense::factory()->count(5)->create([
+                'user_id' => $user->id,
+            ]);
+        });
     }
 }

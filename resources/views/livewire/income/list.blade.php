@@ -38,7 +38,7 @@ $delete = function (int $id) {
         @foreach ($incomes as $income)
             <x-card class="mb-3" title="{{ $income->source }}">
                 <div>
-                    {{ Number::currency($income->amount, in: 'AUD', locale: 'aud') }} @if(!is_null($income->cycle))
+                    {{ Number::currency($income->amount, in: $income->user->currency_code, locale: app()->getLocale()) }} @if(!is_null($income->cycle))
                         {{ $income->cycle }}
                     @endif
                 </div>
