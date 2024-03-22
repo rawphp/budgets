@@ -10,6 +10,8 @@ test('profile page is displayed', function () {
 
     $response = $this->get('/profile');
 
+    expect($response)->toMatchSnapshot();
+
     $response
         ->assertOk()
         ->assertSeeVolt('profile.update-profile-information-form')

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="eLmCPMHtBplcqz30w2yZctc0rMfhQuytjpyTOWIl">
+
+        <title>Simple Budget</title>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+        <!-- Scripts -->
+        <link rel="preload" as="style" href="https://budgets.test/build/assets/app-CHlqG6qX.css" /><link rel="modulepreload" href="https://budgets.test/build/assets/app-CifqVuM1.js" /><link rel="stylesheet" href="https://budgets.test/build/assets/app-CHlqG6qX.css" data-navigate-track="reload" /><script type="module" src="https://budgets.test/build/assets/app-CifqVuM1.js" data-navigate-track="reload"></script>        <script >window.Wireui = {hook(hook, callback) {window.addEventListener(`wireui:${hook}`, () => callback())},dispatchHook(hook) {window.dispatchEvent(new Event(`wireui:${hook}`))}}</script>
+<script src="https://budgets.test/wireui/assets/scripts?id=eac37e3099acafcb5036e20dd54a70e9" defer ></script>
+    <!-- Livewire Styles --><style >[wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #2299dd;}[x-cloak] {display: none !important;}</style>
+</head>
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100">
+            <nav wire:snapshot="{&quot;data&quot;:[],&quot;memo&quot;:{&quot;id&quot;:&quot;nmcUlx4xS0Dysgr5QTn6&quot;,&quot;name&quot;:&quot;layout.navigation&quot;,&quot;path&quot;:&quot;profile&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;},&quot;checksum&quot;:&quot;eed8ca887de6c65da59cbd34acad6359b1b918292dcea70a6c15783cdb134147&quot;}" wire:effects="[]" wire:id="nmcUlx4xS0Dysgr5QTn6" x-data="{ open: false }" class="bg-white border-b border-gray-100">
+    <!-- Primary Navigation Menu -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex">
+                <!-- Logo -->
+                <div class="shrink-0 flex items-center">
+                    <a href="https://budgets.test/dashboard" wire:navigate>
+                        <img src="/logo.jpg" width="50" height="50" alt="logo" />
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out" href="https://budgets.test/dashboard" wire:navigate="wire:navigate">
+    Dashboard
+</a>
+                    <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out" href="https://budgets.test/incomes" wire:navigate="wire:navigate">
+    Income
+</a>
+                    <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out" href="https://budgets.test/expenses" wire:navigate="wire:navigate">
+    Expenses
+</a>
+                    <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out" href="https://budgets.test/transactions" wire:navigate="wire:navigate">
+    Transactions
+</a>
+                </div>
+            </div>
+
+            <!-- Settings Dropdown -->
+            <div class="hidden sm:flex sm:items-center sm:ms-6">
+                <div class="relative inline-block text-left"
+    x-data="wireui_dropdown"
+    x-on:click.outside="close"
+    x-on:keydown.escape.window="close"
+    >
+    <div class="cursor-pointer focus:outline-none" x-on:click="toggle">
+        <!--[if BLOCK]><![endif]-->            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                            <div x-data="{&quot;name&quot;:&quot;Prof. Issac Kautzer&quot;}" x-text="name" x-on:profile-updated.window="name = $event.detail.name"></div>
+
+                            <div class="ms-1">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </button>
+        <!--[if ENDBLOCK]><![endif]-->
+    </div>
+
+    <div x-show="status"
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 scale-95"
+        x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-75"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-95"
+        class="origin-top-right right-0 48 z-30 absolute mt-2 whitespace-nowrap"
+        style="display: none;"
+         x-on:click="close" >
+        <div class="relative max-h-60 soft-scrollbar overflow-auto border border-secondary-200
+                    rounded-lg shadow-lg p-1 bg-white dark:bg-secondary-800 dark:border-secondary-600">
+            
+        </div>
+    </div>
+</div>
+            </div>
+
+            <!-- Hamburger -->
+            <div class="-me-2 flex items-center sm:hidden">
+                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Responsive Navigation Menu -->
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+        <div class="pt-2 pb-3 space-y-1">
+            <a class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-start text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" href="https://budgets.test/dashboard" wire:navigate="wire:navigate">
+    Dashboard
+</a>
+            <a class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-start text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" href="https://budgets.test/incomes" wire:navigate="wire:navigate">
+    Income
+</a>
+            <a class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-start text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" href="https://budgets.test/expenses" wire:navigate="wire:navigate">
+    Expense
+</a>
+            <a class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-start text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" href="https://budgets.test/transactions" wire:navigate="wire:navigate">
+    Transactions
+</a>
+        </div>
+
+        <!-- Responsive Settings Options -->
+        <div class="pt-4 pb-1 border-t border-gray-200">
+            <div class="px-4">
+                <div class="font-medium text-base text-gray-800" x-data="{&quot;name&quot;:&quot;Prof. Issac Kautzer&quot;}" x-text="name" x-on:profile-updated.window="name = $event.detail.name"></div>
+                <div class="font-medium text-sm text-gray-500">bruen.taya@example.com</div>
+            </div>
+
+            <div class="mt-3 space-y-1">
+                <a class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-start text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" href="https://budgets.test/profile" wire:navigate="wire:navigate">
+    Profile
+</a>
+
+                <!-- Authentication -->
+                <button wire:click="logout" class="w-full text-start">
+                    <a class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-start text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">
+    Log Out
+</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+            <!-- Page Heading -->
+                            <header class="bg-white shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            Profile
+        </h2>
+                    </div>
+                </header>
+            
+            <!-- Page Content -->
+            <main>
+                <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                <div class="max-w-xl">
+                    <section wire:snapshot="{&quot;data&quot;:{&quot;name&quot;:&quot;Prof. Issac Kautzer&quot;,&quot;email&quot;:&quot;bruen.taya@example.com&quot;},&quot;memo&quot;:{&quot;id&quot;:&quot;L0V0bI7awozeo8kxuSEh&quot;,&quot;name&quot;:&quot;profile.update-profile-information-form&quot;,&quot;path&quot;:&quot;profile&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;},&quot;checksum&quot;:&quot;6d4b989c131efced0d925f283be53f37ed8dbe5eb66e653f6bb2853b57d42d16&quot;}" wire:effects="[]" wire:id="L0V0bI7awozeo8kxuSEh">
+    <header>
+        <h2 class="text-lg font-medium text-gray-900">
+            Profile Information
+        </h2>
+
+        <p class="mt-1 text-sm text-gray-600">
+            Update your account&#039;s profile information and email address.
+        </p>
+    </header>
+
+    <form wire:submit="updateProfileInformation" class="mt-6 space-y-6">
+        <div>
+            <label class="block font-medium text-sm text-gray-700" for="name">
+    Name
+</label>
+            <input  class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full" wire:model="name" id="name" name="name" type="text" required="required" autofocus="autofocus" autocomplete="name">
+                    </div>
+
+        <div>
+            <label class="block font-medium text-sm text-gray-700" for="email">
+    Email
+</label>
+            <input  class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full" wire:model="email" id="email" name="email" type="email" required="required" autocomplete="username">
+            
+                    </div>
+
+        <div class="flex items-center gap-4">
+            <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+    Save
+</button>
+
+            <div x-data="{ shown: false, timeout: null }"
+     x-init="window.Livewire.find('L0V0bI7awozeo8kxuSEh').on('profile-updated', () => { clearTimeout(timeout); shown = true; timeout = setTimeout(() => { shown = false }, 2000); })"
+     x-show.transition.out.opacity.duration.1500ms="shown"
+     x-transition:leave.opacity.duration.1500ms
+     style="display: none;"
+    class="text-sm text-gray-600 me-3">
+    Saved.
+</div>
+        </div>
+    </form>
+</section>                </div>
+            </div>
+
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                <div class="max-w-xl">
+                    <section wire:snapshot="{&quot;data&quot;:{&quot;current_password&quot;:&quot;&quot;,&quot;password&quot;:&quot;&quot;,&quot;password_confirmation&quot;:&quot;&quot;},&quot;memo&quot;:{&quot;id&quot;:&quot;TBBtkql0Az48IJ2Bob4I&quot;,&quot;name&quot;:&quot;profile.update-password-form&quot;,&quot;path&quot;:&quot;profile&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;},&quot;checksum&quot;:&quot;a3dcc3490de7f6e4166979adccdd91bbb066d5e2fcc9486ddd6f1dcd23fd6f29&quot;}" wire:effects="[]" wire:id="TBBtkql0Az48IJ2Bob4I">
+    <header>
+        <h2 class="text-lg font-medium text-gray-900">
+            Update Password
+        </h2>
+
+        <p class="mt-1 text-sm text-gray-600">
+            Ensure your account is using a long, random password to stay secure.
+        </p>
+    </header>
+
+    <form wire:submit="updatePassword" class="mt-6 space-y-6">
+        <div>
+            <label class="block font-medium text-sm text-gray-700" for="update_password_current_password">
+    Current Password
+</label>
+            <input  class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full" wire:model="current_password" id="update_password_current_password" name="current_password" type="password" autocomplete="current-password">
+                    </div>
+
+        <div>
+            <label class="block font-medium text-sm text-gray-700" for="update_password_password">
+    New Password
+</label>
+            <input  class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full" wire:model="password" id="update_password_password" name="password" type="password" autocomplete="new-password">
+                    </div>
+
+        <div>
+            <label class="block font-medium text-sm text-gray-700" for="update_password_password_confirmation">
+    Confirm Password
+</label>
+            <input  class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full" wire:model="password_confirmation" id="update_password_password_confirmation" name="password_confirmation" type="password" autocomplete="new-password">
+                    </div>
+
+        <div class="flex items-center gap-4">
+            <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+    Save
+</button>
+
+            <div x-data="{ shown: false, timeout: null }"
+     x-init="window.Livewire.find('TBBtkql0Az48IJ2Bob4I').on('password-updated', () => { clearTimeout(timeout); shown = true; timeout = setTimeout(() => { shown = false }, 2000); })"
+     x-show.transition.out.opacity.duration.1500ms="shown"
+     x-transition:leave.opacity.duration.1500ms
+     style="display: none;"
+    class="text-sm text-gray-600 me-3">
+    Saved.
+</div>
+        </div>
+    </form>
+</section>                </div>
+            </div>
+
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                <div class="max-w-xl">
+                    <section wire:snapshot="{&quot;data&quot;:{&quot;password&quot;:&quot;&quot;},&quot;memo&quot;:{&quot;id&quot;:&quot;vkI5W9bU7na5VXqhiVHr&quot;,&quot;name&quot;:&quot;profile.delete-user-form&quot;,&quot;path&quot;:&quot;profile&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;},&quot;checksum&quot;:&quot;8ce2c3fff68fbe73c4bf65166e29be960e82667660333f32d1162bb848e72e86&quot;}" wire:effects="[]" wire:id="vkI5W9bU7na5VXqhiVHr" class="space-y-6">
+    <header>
+        <h2 class="text-lg font-medium text-gray-900">
+            Delete Account
+        </h2>
+
+        <p class="mt-1 text-sm text-gray-600">
+            Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.
+        </p>
+    </header>
+
+    <button type="submit" class="inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150" x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">
+    Delete Account
+</button>
+
+    <div class="fixed inset-0 overflow-y-auto p-4 z-50"
+    x-data="wireui_modal({
+        show: false,
+            })"
+    x-on:keydown.escape.window="handleEscape"
+    x-on:keydown.tab.prevent="handleTab"
+    x-on:keydown.shift.tab.prevent="handleShiftTab"
+    x-on:open-wireui-modal:confirm-user-deletion.window="open"
+    
+    style="display: none"
+    x-cloak
+    x-show="show"
+    wireui-modal>
+    <div class="fixed inset-0 bg-secondary-400 dark:bg-secondary-700 bg-opacity-60 dark:bg-opacity-60 transform transition-opacity"
+        x-show="show"
+                    x-on:click="close"
+                x-transition:enter="ease-out duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="ease-in duration-200"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0">
+    </div>
+
+    <div class="w-full min-h-full transform flex items-end justify-center mx-auto sm:items-start sm:max-w-2xl"
+        x-show="show"
+                    x-on:click.self="close"
+                x-transition:enter="ease-out duration-300"
+        x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+        x-transition:leave="ease-in duration-200"
+        x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+        x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+        <form wire:submit="deleteUser" class="p-6">
+
+            <h2 class="text-lg font-medium text-gray-900">
+                Are you sure you want to delete your account?
+            </h2>
+
+            <p class="mt-1 text-sm text-gray-600">
+                Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.
+            </p>
+
+            <div class="mt-6">
+                <label class="block font-medium text-sm text-gray-700 sr-only" for="password">
+    Password
+</label>
+
+                <input  class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-3/4" wire:model="password" id="password" name="password" type="password" placeholder="Password">
+
+                            </div>
+
+            <div class="mt-6 flex justify-end">
+                <button type="button" class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-25 transition ease-in-out duration-150" x-on:click="$dispatch('close')">
+    Cancel
+</button>
+
+                <button type="submit" class="inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150 ms-3">
+    Delete Account
+</button>
+            </div>
+        </form>
+    </div>
+</div>
+</section>                </div>
+            </div>
+        </div>
+    </div>
+            </main>
+        </div>
+    <!-- Livewire Scripts -->
+<script src="/livewire/livewire.js?id=5d8beb2e"   data-csrf="eLmCPMHtBplcqz30w2yZctc0rMfhQuytjpyTOWIl" data-update-uri="/livewire/update" data-navigate-once="true"></script>
+</body>
+</html>
