@@ -51,7 +51,7 @@ class Income extends Model
     public static function getRules(): array
     {
         return [
-            'source' => 'required|string',
+            'description' => 'required|string',
             'amount' => 'required|numeric',
             'cycle' => 'required|string',
         ];

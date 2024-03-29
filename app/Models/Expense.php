@@ -56,7 +56,7 @@ class Expense extends Model
     public static function getRules(): array
     {
         return [
-            'name' => 'required|string',
+            'description' => 'required|string',
             'category' => 'required|string',
             'amount' => 'required|numeric',
         ];

@@ -58,7 +58,7 @@ test('create expense', function () {
 
     Volt::test('expense.create')
         ->assertSee('Create Expense')
-        ->set('name', 'Test Expense')
+        ->set('description', 'Test Expense')
         ->set('amount', '1000')
         ->set('category', ExpenseType::Need->value)
         ->call('create')

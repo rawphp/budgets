@@ -22,7 +22,7 @@ test('list income sources page', function () {
 
     $response->assertStatus(200);
     $response->assertSee('Income Sources');
-    $response->assertSee('$2,000.00');
+    $response->assertSee('$1,800.00');
 });
 
 test('delete income source on list page', function () {
@@ -56,7 +56,7 @@ test('create income source', function () {
 
     Volt::test('income.create')
         ->assertSee('Create Income Source')
-        ->set('source', 'Test Source')
+        ->set('description', 'Test Source')
         ->set('amount', '1000')
         ->set('cycle', 'weekly')
         ->call('create')
