@@ -56,7 +56,7 @@ $save = fn() => $this->form->updateTransaction();
         <x-input wire:model="form.amount" label="Amount" icon="currency-dollar"/>
 
         <div class="pt-3">
-            <x-button type="submit" primary>Create Transaction</x-button>
+            <x-button type="submit" primary>Update Transaction</x-button>
         </div>
     </form>
 </div>
