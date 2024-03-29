@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('incomes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('source'); // Assuming you want to store the income source as a string
+            $table->string('description'); // Assuming you want to store the income source as a string
             $table->decimal('amount', 10, 2);
             $table->string('cycle');
             $table->timestamps();

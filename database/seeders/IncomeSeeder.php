@@ -16,11 +16,10 @@ class IncomeSeeder extends Seeder
         User::all()->map(function (User $user) {
             Income::factory()->create([
                 'user_id' => $user->id,
-                'cycle' => 'weekly',
             ]);
             Income::factory()->create([
                 'user_id' => $user->id,
-                'source' => 'Bonus',
+                'description' => 'Bonus',
                 'amount' => fake()->numberBetween(1000, 5000),
                 'cycle' => 'once',
             ]);

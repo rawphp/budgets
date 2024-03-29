@@ -10,7 +10,7 @@ rules(Expense::getRules());
 state([
     'id' => null,
     'categories' => [ExpenseType::Need->value, ExpenseType::Want->value, ExpenseType::SavingDebt->value],
-    'name' => '',
+    'description' => '',
     'category' => null,
     'amount' => ''
 ]);
@@ -24,7 +24,7 @@ $update = function () {
     $expense = Expense::find($this->id);
 
     $expense->update([
-        'name' => $this->name,
+        'description' => $this->description,
         'category' => $this->category,
         'amount' => $this->amount,
     ]);
@@ -35,7 +35,7 @@ $update = function () {
 
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mx-2">
     <form wire:submit="update">
-        <x-input wire:model="name" label="Name"/>
+        <x-input wire:model="description" label="Name"/>
         <x-input wire:model="amount" label="Amount" icon="currency-dollar"/>
         <x-select label="Category" wire:model.defer="category" :options="$this->categories"/>
 

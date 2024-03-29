@@ -44,7 +44,7 @@ class TransactionPolicy
      */
     public function delete(User $user, Transaction $transaction): bool
     {
-        //
+        return $user->id === $transaction->user->id;
     }
 
     /**

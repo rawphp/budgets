@@ -13,6 +13,9 @@ Route::middleware('auth')->group(function () {
     Route::view('expenses', 'expense.index')->name('expense.index');
     Route::view('expenses/create', 'expense.create')->name('expense.create');
     Route::view('expenses/{expense}/edit', 'expense.edit')->name('expense.edit');
+    Route::view('transactions', 'transaction.index')->name('transaction.index');
+    Route::view('transactions/create', 'transaction.create')->name('transaction.create');
+    Route::view('transactions/{transaction}/edit', 'transaction.edit')->name('transaction.edit');
 });
 
 require __DIR__ . '/auth.php';

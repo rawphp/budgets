@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -22,7 +23,7 @@ class Income extends Model
 
     protected $fillable = [
         'user_id',
-        'source',
+        'description',
         'amount',
         'cycle',
     ];
@@ -37,6 +38,14 @@ class Income extends Model
     public function transactions(): MorphMany
     {
         return $this->morphMany(Transaction::class, 'transactionable');
+    }
+
+    public function amount(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => $value / 100,
+            set: fn ($value) => $value * 100
+        );
     }
 
     public static function getRules(): array

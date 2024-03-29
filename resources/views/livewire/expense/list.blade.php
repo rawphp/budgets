@@ -36,7 +36,7 @@ $delete = function (int $id) {
             </x-button>
         </div>
         @foreach ($expenses as $expense)
-            <x-card class="mb-3" title="{{ $expense->name }}">
+            <x-card class="mb-3" title="{{ $expense->description }}">
                 <div>Type: {{ $expense->category->value }}</div>
                 <div>
                     {{ Number::currency($expense->amount, in: $expense->user->currency_code, locale: app()->getLocale()) }} @if(!is_null($expense->cycle))

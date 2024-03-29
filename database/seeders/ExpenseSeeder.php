@@ -17,7 +17,7 @@ class ExpenseSeeder extends Seeder
         User::all()->map(function (User $user) {
             Expense::factory()->create([
                 'user_id' => $user->id,
-                'name' => 'Mortgage',
+                'description' => 'Mortgage',
                 'category' => ExpenseType::Need,
                 'amount' => 765.00,
             ]);

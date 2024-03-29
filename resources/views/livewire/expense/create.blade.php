@@ -7,7 +7,7 @@ use function Livewire\Volt\{state};
 use function Livewire\Volt\{rules};
 
 state([
-    'name' => '',
+    'description' => '',
     'category' => null,
     'amount' => '',
     'categories' => [ExpenseType::Need->value, ExpenseType::Want->value, ExpenseType::SavingDebt->value]
@@ -18,7 +18,7 @@ $create = function () {
     $this->validate();
 
     Auth::user()->expenses()->create([
-        'name' => $this->name,
+        'description' => $this->description,
         'category' => $this->category,
         'amount' => $this->amount,
     ]);
@@ -29,7 +29,7 @@ $create = function () {
 
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mx-2">
     <form wire:submit="create">
-        <x-input wire:model="name" label="Name"/>
+        <x-input wire:model="description" label="Name"/>
         <x-input wire:model="amount" label="Amount" icon="currency-dollar"/>
         <x-select label="Category" wire:model.defer="category" :options="$this->categories"/>
 

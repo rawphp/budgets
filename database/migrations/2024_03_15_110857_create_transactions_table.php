@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->morphs('transactionable'); // This will create `transactionable_type` and `transactionable_id`
-            $table->string('description'); // Optional, to describe the transaction
-            $table->decimal('amount', 10, 2);
+            $table->morphs('transactionable'); // creates `transactionable_type` and `transactionable_id`
+            $table->string('description');
+            $table->bigInteger('amount');
             $table->timestamps();
             $table->softDeletes();
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('transaction');
     }
 };

@@ -20,8 +20,8 @@ class IncomeFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'source' => 'Job',
-            'amount' => 2000,
+            'description' => 'Job',
+            'amount' => 1800,
             'cycle' => 'weekly',
         ];
     }

@@ -9,7 +9,7 @@ rules(Income::getRules());
 state([
     'id' => null,
     'cycles' => Income::getCycles(),
-    'source' => '',
+    'description' => '',
     'amount' => '',
     'cycle' => '',
 ]);
@@ -24,7 +24,7 @@ $update = function () {
     $income = Income::find($this->id);
 
     $income->update([
-        'source' => $this->source,
+        'description' => $this->description,
         'amount' => $this->amount,
         'cycle' => $this->cycle,
     ]);
@@ -35,7 +35,7 @@ $update = function () {
 
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mx-2">
     <form wire:submit="update">
-        <x-input wire:model="source" label="Source"/>
+        <x-input wire:model="description" label="Source"/>
         <x-input wire:model="amount" label="Amount" icon="currency-dollar"/>
         <x-select label="Cycle" wire:model.defer="cycle" :options="$this->cycles"/>
 

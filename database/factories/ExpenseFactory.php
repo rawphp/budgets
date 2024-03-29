@@ -21,7 +21,7 @@ class ExpenseFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'name' => fake()->slug(),
+            'description' => fake()->slug(),
             'category' => fake()->randomElement([ExpenseType::Need, ExpenseType::Want, ExpenseType::SavingDebt]),
             'amount' => fake()->numberBetween(10, 1000),
         ];
